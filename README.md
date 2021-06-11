@@ -4,7 +4,7 @@
 
 **Lemon is a very simple bash script to search for basic/easy-wins privilige escalation vectors on Linux machines** 
 
-****LEMON IS STILL UNDER ACTIVE DEVELOPMENT**
+**LEMON IS STILL UNDER ACTIVE DEVELOPMENT**
 
 *contributions are welcomed*
 
