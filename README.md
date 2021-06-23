@@ -17,7 +17,9 @@
         $ ./lemon
 
 
+![lemon](https://github.com/SxNade/Lemon/blob/main/lemon.gif)
 
+*Also keep in mind that you may have to press **enter** after performing a single check from menu*
 
 # On the Go one Liner
 
