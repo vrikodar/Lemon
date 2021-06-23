@@ -2,7 +2,7 @@
 
 ![lemon](https://github.com/SxNade/Lemon/blob/main/Lemon.jpg)
 
-**Lemon is a User Interactive bash program to search for basic/easy-wins privilige escalation vectors on Linux ** 
+`Lemon is a User Interactive bash program to search for basic/easy-wins privilige escalation vectors on Linux` 
 
 **LEMON IS STILL UNDER ACTIVE DEVELOPMENT**
 
