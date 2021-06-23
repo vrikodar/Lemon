@@ -83,7 +83,7 @@ echo -e "\n${BGreen}[+]${NC} Lemon ${BBlue} v(1.0) [Author: ${BRed}z3r0day${NC}$
 
 PS3=$(echo -e "\n${BRed}>${NC}${BGreen}>${NC} ")
 echo -e "${BGreen}[+]${NC} ${BBlue}Choose the menu${NC} ${BRed}numbers!${NC}\n"
-select answer in "passwd_shadow" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "prompt" "exit"
+select answer in "passwd_shadow" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "exit"
 do
 	if [ $answer = "exit" ]
 	then
