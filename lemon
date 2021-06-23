@@ -106,7 +106,7 @@ do
 				bash_history&;;
 			config_code)
 				config_code&;;
-			hidden_service)
+			hidden_services)
 				hidden_service&;;
 			NFS_shares)
 				nfs&;;
