@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# https://github.com/SxNade/Lemon :: Author z3r0day
 BGreen='\033[1;32m'
 BRed='\033[1;31m'
 NC='\033[0m'
