@@ -2,11 +2,20 @@
 
 ![lemon](https://github.com/SxNade/Lemon/blob/main/Lemon.jpg)
 
-**Lemon is a very simple bash script to search for basic/easy-wins privilige escalation vectors on Linux machines** 
+**Lemon is a User Interactive bash program to search for basic/easy-wins privilige escalation vectors on Linux ** 
 
 **LEMON IS STILL UNDER ACTIVE DEVELOPMENT**
 
 *contributions are welcomed*
+
+# Running Lemon
+
+        $ git clone https://github.com/SxNade/Lemon
+        $ cd Lemon
+        $ chmod +x lemon
+        
+        $ ./lemon
+
 
 
 
