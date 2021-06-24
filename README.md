@@ -26,6 +26,10 @@
         curl https://raw.githubusercontent.com/SxNade/Lemon/main/lemon -o lemon ; chmod +x lemon ; ls -la lemon
 
 
+# Some Benifts of Lemon
+
+*All the checks performed by lemon are done in background in a different proccess thread that is in a subshell which keeps your original shell intact and this can prevent your reverse shells from crashing **but keep in mind** you need a tty on your shell first to run the script properly which you can spawn using python or perl or any other of your choice*
+
 # Note
 
 *Lemon by no means is a replacement for manual enumeration for privlige escalation, its just aimed at automating some basic checks that a user would do to search for easy wins.*
