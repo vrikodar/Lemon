@@ -26,7 +26,7 @@
         curl https://raw.githubusercontent.com/SxNade/Lemon/main/lemon -o lemon ; chmod +x lemon ; ls -la lemon
 
 
-# Some Benifts of Lemon
+# How Lemon Does not Crash your `shells`
 
 *All the checks performed by lemon are done in background in a different proccess thread that is in a subshell which keeps your original shell intact and this can prevent your reverse shells from crashing **but keep in mind** you need a tty on your shell first to run the script properly which you can spawn using python or perl or any other of your choice*
 
