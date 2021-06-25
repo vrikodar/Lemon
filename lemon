@@ -7,13 +7,14 @@ NC='\033[0m'
 BBlue='\033[1;34m'
 
 function passwd_shadow() {
-	echo -e "${BGreen}[+]${NC} Do you see ${BBlue}Write/Read${NC} on ${BGreen}/etc/shadow${NC} ${BBlue}and${NC} ${BGreen}/etc/passwd${NC}"
+	echo -e "\n${BGreen}[+]${NC} Do you see ${BBlue}Write/Read${NC} on ${BGreen}/etc/shadow${NC} ${BBlue}and${NC} ${BGreen}/etc/passwd${NC}"
 	ls -lah /etc/passwd | grep 'r\|w' --color=auto
 	ls -lah /etc/shadow | grep 'r\|w' --color=auto
 	echo
 }
 
 function whoisthis() {
+	echo -e "\n${BBlue}============================================================================${NC}"
 	echo -e "\n${BBlue}current user:${NC} ${BRed}$(whoami)${NC}"
 	echo -e "\n${BBlue}Hostname:${NC} ${BRed}$(hostname)${NC}"
 	if [ ${UID} -eq 0 ]
@@ -21,20 +22,20 @@ function whoisthis() {
 		echo -e "\n${BGreen} You Are Already${NC} ${BRed}root${NC} ${BBlue} Bozzy! Nani?!!${NC}\n"
 	fi
 	id | grep 'groups\|uid\|root' --color=auto
+	echo -e "${BBlue}============================================================================${NC}"
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}Distro!${NC} ${BRed}Kernel exploits??${NC}"
 	echo
 	cat /etc/os-release
 	echo
 	cat /proc/version | grep 'Linux\|linux\|Rhel\|debian\|RHEL\|Cent\|ubuntu' --color=auto
-
+	echo -e "${BBlue}============================================================================${NC}"
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}Do we Have${NC} ${BRed}GCC/CC??${NC} or ${BGreen}Cross-compilation${NC}"
 	/usr/bin/which gcc | grep gcc --color=auto
 	/usr/bin/which cc | grep cc --color=auto
 
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}what${NC} ${BRed}architecture${NC} is ${BGreen}$(hostname)${NC}\n"
 	arch | grep '64\|x86\|i686\|86' --color=auto
-
-
+	echo -e "${BBlue}============================================================================${NC}"
 	
 }
 function capabilities() {
@@ -96,6 +97,10 @@ function hidden_service() {
 	echo
 }
 
+function console_clear() {
+	export TERM=xterm
+	clear
+}
 function nfs() {
 	 echo -e "${BGreen}[+]${NC} ${BBlue}Is there${NC} any ${BRed}NFS?${NC}"
 	 cat /etc/exports
@@ -107,7 +112,7 @@ echo -e "\n${BGreen}[+]${NC} Lemon ${BBlue} v(1.0) [Author: ${BRed}z3r0day${NC}$
 
 PS3=$(echo -e "\n${BRed}>${NC}${BGreen}>${NC} ")
 echo -e "${BGreen}[+]${NC} ${BBlue}Choose the menu${NC} ${BRed}numbers!${NC}\n"
-select answer in "passwd_shadow" "whoisthis" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "exit"
+select answer in "passwd_shadow" "whoisthis" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "console_clear" "exit"
 do
 	if [ $answer = "exit" ]
 	then
@@ -137,8 +142,9 @@ do
 				hidden_service&;;
 			NFS_shares)
 				nfs&;;
+			console_clear)
+				console_clear&;;
 	esac
 done
 
 echo -e "\n ${BRed}Exting${NC} with ${BGreen}peace${NC} ${BBlue}:)${NC}"
-
