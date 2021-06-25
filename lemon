@@ -31,7 +31,7 @@ function whoisthis() {
 	/usr/bin/which gcc | grep gcc --color=auto
 	/usr/bin/which cc | grep cc --color=auto
 
-	echo -e "\n${BGreen}[+]${NC} ${BBlue}what${NC} ${BRed}architecture${NC} is ${BGreen}$(hostname)${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}what${NC} ${BRed}architecture${NC} is ${BGreen}$(hostname)${NC}\n"
 	arch | grep '64\|x86\|i686\|86' --color=auto
 
 
