@@ -13,6 +13,30 @@ function passwd_shadow() {
 	echo
 }
 
+function whoisthis() {
+	echo -e "\n${BBlue}current user:${NC} ${BRed}$(whoami)${NC}"
+	echo -e "\n${BBlue}Hostname:${NC} ${BRed}$(hostname)${NC}"
+	if [ ${UID} -eq 0 ]
+	then
+		echo -e "\n${BGreen} You Are Already${NC} ${BRed}root${NC} ${BBlue} Bozzy! Nani?!!${NC}\n"
+	fi
+	id | grep 'groups\|uid\|root' --color=auto
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Distro!${NC} ${BRed}Kernel exploits??${NC}"
+	echo
+	cat /etc/os-release
+	echo
+	cat /proc/version | grep 'Linux\|linux\|Rhel\|debian\|RHEL\|Cent\|ubuntu' --color=auto
+
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Do we Have${NC} ${BRed}GCC/CC??${NC} or ${BGreen}Cross-compilation${NC}"
+	/usr/bin/which gcc | grep gcc --color=auto
+	/usr/bin/which cc | grep cc --color=auto
+
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}what${NC} ${BRed}architecture${NC} is ${BGreen}$(hostname)${NC}"
+	arch | grep '64\|x86\|i686\|86' --color=auto
+
+
+	
+}
 function capabilities() {
 	echo -e "${BGreen}[+]${NC} ${BBlue}Eye On${NC} ${BRed}Capabilities${NC}"
 	command=$(getcap -r / 2>/dev/null)
@@ -55,9 +79,9 @@ function bash_history() {
 }
 
 function config_code() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.pyc?${NC}"
-	find / -name *.php 2> /dev/null &
-	find / -name *.pyc 2> /dev/null &
+	echo -e "${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.pyc? :: be paitent this can take time!${NC}"
+	find / -name *config*.php 2> /dev/null & 
+	find / -name *db*.php 2> /dev/null &
 	wait
 	echo
 }
@@ -83,7 +107,7 @@ echo -e "\n${BGreen}[+]${NC} Lemon ${BBlue} v(1.0) [Author: ${BRed}z3r0day${NC}$
 
 PS3=$(echo -e "\n${BRed}>${NC}${BGreen}>${NC} ")
 echo -e "${BGreen}[+]${NC} ${BBlue}Choose the menu${NC} ${BRed}numbers!${NC}\n"
-select answer in "passwd_shadow" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "exit"
+select answer in "passwd_shadow" "whoisthis" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "exit"
 do
 	if [ $answer = "exit" ]
 	then
@@ -93,6 +117,8 @@ do
 		case $answer in
 			passwd_shadow)
 				passwd_shadow&;;
+			whoisthis)
+				whoisthis&;;
 			capabilities)
 				capabilities&;;
 			cronjobs)
@@ -115,3 +141,4 @@ do
 done
 
 echo -e "\n ${BRed}Exting${NC} with ${BGreen}peace${NC} ${BBlue}:)${NC}"
+
