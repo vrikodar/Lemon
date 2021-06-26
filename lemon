@@ -6,6 +6,19 @@ BRed='\033[1;31m'
 NC='\033[0m'
 BBlue='\033[1;34m'
 
+function tty_shell() {
+	python -c 'import pty; pty.spawn("/bin/bash")' && export TERM=xterm-256color
+	if [ $? -ne 0 ]
+	then
+		python3 -c 'import pty; pty.spawn("/bin/bash")' && export TERM=xterm-256color
+		if [ $? -ne 0 ]
+		then
+			perl -e 'exec "/bin/sh";'
+		fi
+	fi
+}
+
+
 function passwd_shadow() {
 	echo -e "\n${BGreen}[+]${NC} Do you see ${BBlue}Write/Read${NC} on ${BGreen}/etc/shadow${NC} ${BBlue}and${NC} ${BGreen}/etc/passwd${NC}"
 	ls -lah /etc/passwd | grep 'r\|w' --color=auto
@@ -23,6 +36,10 @@ function whoisthis() {
 	fi
 	id | grep 'groups\|uid\|root' --color=auto
 	echo -e "${BBlue}============================================================================${NC}"
+	echo -e -e "\n${BBlue}Bash version:${NC} ${BRed}$(/bin/bash --version)${NC}\n"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Shells${NC} ${BGreen}we have!${NC}"
+	cat /etc/shells
+	echo -e "${BBlue}============================================================================${NC}"
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}Distro!${NC} ${BRed}Kernel exploits??${NC}"
 	echo
 	cat /etc/os-release
@@ -39,7 +56,7 @@ function whoisthis() {
 	
 }
 function capabilities() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}Eye On${NC} ${BRed}Capabilities${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Eye On${NC} ${BRed}Capabilities${NC} ${BRed}::be paitent this can take time!${NC}"
 	command=$(getcap -r / 2>/dev/null)
 	echo ${command}
 	echo
@@ -48,26 +65,26 @@ function capabilities() {
 }
 
 function cronjobs() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}See some ${BRed}CronJobs${NC} running as${NC} ${BRed}root?${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}See some ${BRed}CronJobs${NC} running as${NC} ${BRed}root?${NC}"
 	cat /etc/crontab
 	echo
 }
 
 function keys_ssh() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}See some ${BRed}SSH keys?${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}See some ${BRed}SSH keys?${NC}"
 	find / -name id_rsa 2> /dev/null
 	echo
 }
 
 function dker() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}See ${BRed}Docker${NC} in there?"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}See ${BRed}Docker${NC} in there?"
 	id
 	id | grep docker --color=auto
 	echo
 }
 
-function suids() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}These Binaries${NC} on ${BRed}GTFObins?${NC}"
+function su_gids() {
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}These Binaries${NC} on ${BRed}GTFObins?${NC}"
 	find / -perm -u=s 2> /dev/null
 	echo
 }
@@ -80,25 +97,45 @@ function bash_history() {
 }
 
 function config_code() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.pyc? :: be paitent this can take time!${NC}"
+	echo -e "${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.cap? :: be paitent this can take time!${NC}"
 	find / -name *config*.php 2> /dev/null & 
 	find / -name *db*.php 2> /dev/null &
+	find / -name *.cap 2> /dev/null &
+	find / -name *.pcap 2> /dev/null &
 	wait
 	echo
 }
 
-function hidden_service() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}Need some${NC} ${BRed}tunneling?${NC}"
+function hidden_service_and_network() {
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Duo-Homed${NC} ${BRed}Some Dynamic tunneling?${NC}"
+	/sbin/ifconfig
+	if [ $? -ne 0 ]
+	then
+		ip a
+	fi
+	echo
+	ip route
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Any Friends${NC} ${BRed}Nearby?${NC}"
+	arp -a
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Need some${NC} ${BRed}tunneling?${NC}"
 	ss -antlp
 	if [ $? -ne 0 ]
 	then
 		netstat -ano
 	fi
+	echo -e "${BBlue}===========================================================================    =${NC}"
 	echo
+
 }
 
+function Sudo() {
+	result=$(sudo -l)
+	echo ${result} | grep 'ALL\|LD_PRELOAD\|env_keep\|root' --color=auto
+}
+
+
 function console_clear() {
-	export TERM=xterm
+	export TERM=xterm-256color
 	clear
 }
 function nfs() {
@@ -112,7 +149,7 @@ echo -e "\n${BGreen}[+]${NC} Lemon ${BBlue} v(1.0) [Author: ${BRed}z3r0day${NC}$
 
 PS3=$(echo -e "\n${BRed}>${NC}${BGreen}>${NC} ")
 echo -e "${BGreen}[+]${NC} ${BBlue}Choose the menu${NC} ${BRed}numbers!${NC}\n"
-select answer in "passwd_shadow" "whoisthis" "capabilities" "cronjobs" "keys_ssh" "docker" "SUIDs" "bash_history" "config_code" "hidden_services" "NFS_shares" "console_clear" "exit"
+select answer in "Sudo" "tty_shell" "passwd_shadow" "whoisthis" "capabilities" "cronjobs" "keys_ssh" "docker" "SU_GIDs" "bash_history" "config_code" "hidden_service_and_network" "NFS_shares" "console_clear" "exit"
 do
 	if [ $answer = "exit" ]
 	then
@@ -120,6 +157,10 @@ do
 		exit
 	fi
 		case $answer in
+			Sudo)
+				Sudo;;
+			tty_shell)
+				tty_shell;;
 			passwd_shadow)
 				passwd_shadow&;;
 			whoisthis)
@@ -132,14 +173,14 @@ do
 				keys_ssh&;;
 			docker)
 				dker&;;
-			SUIDs)
-				suids&;;
+			SU_GIDs)
+				su_gids&;;
 			bash_history)
 				bash_history&;;
 			config_code)
 				config_code&;;
-			hidden_services)
-				hidden_service&;;
+			hidden_service_and_network)
+				hidden_service_and_network&;;
 			NFS_shares)
 				nfs&;;
 			console_clear)
@@ -148,3 +189,4 @@ do
 done
 
 echo -e "\n ${BRed}Exting${NC} with ${BGreen}peace${NC} ${BBlue}:)${NC}"
+
