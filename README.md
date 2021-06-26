@@ -4,6 +4,8 @@
 
 `Lemon is a User Interactive bash program to search for basic/easy-wins privilige escalation vectors on Linux` 
 
+*Before running in non-interactive reverse shell sessions **Spawn A TTY shell** --> https://netsec.ws/?p=337 * 
+
 # Running Lemon
 
         $ git clone https://github.com/SxNade/Lemon
@@ -34,7 +36,6 @@
 
 *clears the terminal screen{**also automatically sets TERM variable**} and resumes the script execution this is useful to avoid overwhelming output produced by script all at once so you can perform one check and read the output and then clear the console to move onto next check* 
 
-**Spawning TTY shell** --> https://netsec.ws/?p=337 
 
 # Note
 
