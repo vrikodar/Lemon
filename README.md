@@ -2,7 +2,7 @@
 
 ![lemon](https://github.com/SxNade/Lemon/blob/main/Lemon.jpg)
 
-`Lemon is a User Interactive bash program to search for basic/easy-wins privilige escalation vectors on Linux` 
+`Lemon is a User Interactive bash program to search for basic/easy-wins privilege escalation vectors on Linux` 
 
 *Before running in non-interactive reverse shell sessions **Spawn A TTY shell** --> https://netsec.ws/?p=337 * 
 
@@ -39,6 +39,6 @@
 
 # Note
 
-*Lemon by no means is a replacement for manual enumeration for privlige escalation, its just aimed at automating some basic checks that a user would do to search for easy wins.*
+*Lemon by no means is a replacement for manual enumeration for privilege escalation, its just aimed at automating some basic checks that a user would do to search for easy wins.*
 
 *Lemon searches for most common known misconfiguration, more code is yet to be added and reformatted*
