@@ -28,11 +28,11 @@
 
 # Option2 `tty_shell`
 
-*this is a useful option that lets you jump between system interactive shell and the menu back and forth, for example you Successfully Found a Attack vector and you want to try it the tty_shell option2 lets you drop into system shell and once you have tried it you can  type exit to exit the spawned shell and resume from the script panel.* 
+*this is a useful option that lets you jump between **system interactive shell** and the **script menu** back and forth, for example you Successfully Found a Attack vector and you want to try it the tty_shell option2 lets you drop into system shell and once you have tried it you can  type exit to exit the spawned shell and resume from the script panel.* 
 
 # Option14 `console_clear`
 
-*clears the terminal screen{**also automatically sets TERM variable**} and resumes the script execution this can be useful in managing overwhelming output produced by other scripts all at once so you can perform one check and read the output and then clear the console to move onto next check* 
+*clears the terminal screen{**also automatically sets TERM variable**} and resumes the script execution this is useful to avoid overwhelming output produced by script all at once so you can perform one check and read the output and then clear the console to move onto next check* 
 
 **Spawning TTY shell** --> https://netsec.ws/?p=337 
 
