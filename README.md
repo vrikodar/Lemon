@@ -41,4 +41,4 @@
 
 *Lemon by no means is a replacement for manual enumeration for privilege escalation, its just aimed at automating some basic checks that a user would do to search for easy wins.*
 
-*Lemon searches for most common known misconfiguration, more code is yet to be added and reformatted*
+*Lemon searches for most common known misconfiguration, more options will be added in upcoming releases*
