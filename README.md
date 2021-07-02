@@ -22,8 +22,9 @@
                 
                         $ apt install rlwrap
                         
-*Listening with rlwrap* --> **rlwrap nc -lp <port>**
+                Listening for incoming connections with rlwrap --> rlwrap nc -lp <port>
 
+*same goes for bind shells*
 
 ![lemon](https://github.com/SxNade/Lemon/blob/main/lemon.gif)
 
