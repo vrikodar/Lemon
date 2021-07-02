@@ -103,6 +103,8 @@ function config_code() {
 	find / -name *.cap 2> /dev/null &
 	find / -name *.pcap 2> /dev/null &
 	wait
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Configuration Files${NC} ${BRed}writable by you!${NC}\n"
+	find /etc -type f -writable 2> /dev/null
 	echo
 }
 
