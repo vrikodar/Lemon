@@ -14,6 +14,16 @@
         
         $ ./lemon
 
+# TIP
+
+**Its recommended that you catch your shells using rlwrap along with netcat this makes your shells more stable and allows you to go through command history as in your typical linux shell with UP and DOWN arrows**
+
+*rlwrap can be installed with*
+                
+                        $ apt install rlwrap
+                        
+*Listening with rlwrap* --> **rlwrap nc -lp <port>**
+
 
 ![lemon](https://github.com/SxNade/Lemon/blob/main/lemon.gif)
 
