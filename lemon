@@ -97,7 +97,7 @@ function bash_history() {
 }
 
 function config_code() {
-	echo -e "${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.cap? :: be paitent this can take time!${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.cap? :: be paitent this can take time!${NC}"
 	find / -name *config*.php 2> /dev/null & 
 	find / -name *db*.php 2> /dev/null &
 	find / -name *.cap 2> /dev/null &
