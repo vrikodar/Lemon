@@ -97,9 +97,10 @@ function bash_history() {
 }
 
 function config_code() {
-	echo -e "\n${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.cap? :: be paitent this can take time!${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}DB-creds?/compiled-code${NC} intersting ${BRed}.php/.cap/.bak? :: be paitent this can take time!${NC}"
 	find / -name *config*.php 2> /dev/null & 
 	find / -name *db*.php 2> /dev/null &
+	find / -name *.bak 2> /dev/null &
 	find / -name *.cap 2> /dev/null &
 	find / -name *.pcap 2> /dev/null &
 	wait
@@ -146,7 +147,7 @@ function nfs() {
 	 echo
 }
 
-echo -e "\n${BGreen}[+]${NC} Lemon ${BBlue} v(1.0) [Author: ${BRed}z3r0day${NC}${BBlue}] ${BGreen}initialzing${NC} on ${BRed}$(hostname)${NC} at ${BBlue}$(date +%T)${NC}\n"
+echo -e "\n${BGreen}[+]${NC} Lemon ${BBlue} v(1.1) [Author: ${BRed}z3r0day${NC}${BBlue}] ${BGreen}initialzing${NC} on ${BRed}$(hostname)${NC} at ${BBlue}$(date +%T)${NC}\n"
 
 
 PS3=$(echo -e "\n${BRed}>${NC}${BGreen}>${NC} ")
@@ -191,4 +192,5 @@ do
 done
 
 echo -e "\n ${BRed}Exting${NC} with ${BGreen}peace${NC} ${BBlue}:)${NC}"
+
 
