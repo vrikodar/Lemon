@@ -40,6 +40,9 @@ function whoisthis() {
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}Shells${NC} ${BGreen}we have!${NC}"
 	cat /etc/shells
 	echo -e "${BBlue}============================================================================${NC}"
+	echo -e "\n${BGreen}[+]${NC} ${BBlue}Users on System${NC} ${BGreen}with console!${NC}"
+	cat /etc/passwd | grep  '/bin/bash\|/bin/sh\|/bin/zsh'
+	echo -e "${BBlue}============================================================================${NC}"
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}Distro!${NC} ${BRed}Kernel exploits??${NC}"
 	echo
 	cat /etc/os-release
