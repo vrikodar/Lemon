@@ -229,7 +229,7 @@ function make_cache_file() {
 
 function cache_run() {
 	echo -e "\n[${BGreen}+${NC}] running in ${BRed}cache${NC} mode!"
-	echo -e "[${BGreen}+${NC}] caching all results..this might take some times, waiting for all threads to exit"
+	echo -e "[${BGreen}+${NC}] caching all results..this might take some time, waiting for all threads to exit"
 	make_cache_file	
 	PS3=$(echo -e "\n${BRed}lemon${NC}@$(uname -a | awk '{print $2}')~ ")
 	echo -e "[${BGreen}+${NC}] Choose the option ${BRed}number${NC} from menu below! \n"
