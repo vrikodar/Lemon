@@ -219,7 +219,7 @@ function no_cache() {
 
 function make_cache_file() {
 	mkdir /tmp/lemon_cache
-	for func in Sudo passwd_shadow whoisthis capabilities cronjobs keys_ssh dker su_gids bash_history config_code hidden_service_and_network nfs
+	for func in passwd_shadow whoisthis capabilities cronjobs keys_ssh dker su_gids bash_history config_code hidden_service_and_network nfs
 	do
 		${func} > /tmp/lemon_cache/.${func} &
 	done
