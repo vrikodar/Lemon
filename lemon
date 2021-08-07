@@ -71,6 +71,10 @@ function cronjobs() {
 	echo -e "\n${BGreen}[+]${NC} ${BBlue}See some ${BRed}CronJobs${NC} running as${NC} ${BRed}root?${NC}"
 	cat /etc/crontab
 	echo
+	echo -e "\n@ in ${BRED}/var/spool/cron {NC}"
+	ls -la /var/spool/cron
+	ls -la /var/spool/cron/crontabs
+	echo
 }
 
 function keys_ssh() {
