@@ -2,7 +2,7 @@
 
 ![lemon](https://i.pinimg.com/originals/77/fd/43/77fd43ae375e3630e6d0502844f25ee2.png)
 
-`Lemon is a User Interactive bash program to search for basic/easy-wins privilege escalation vectors on Linux` 
+**Lemon is a User Interactive bash program to search for basic/easy-wins privilege escalation vectors on Linux**
 
 *Before running in non-interactive reverse shell sessions **Spawn A TTY shell** --> https://netsec.ws/?p=337 * 
 
