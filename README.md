@@ -17,7 +17,7 @@
 
 # On the Go one Liner
 
-        curl https://raw.githubusercontent.com/SxNade/Lemon/main/lemon -o lemon ; chmod +x lemon ; ls -la lemon
+``` curl https://raw.githubusercontent.com/SxNade/Lemon/main/lemon -o lemon ; chmod +x lemon ; ls -la lemon ```
 
 # TIP
 
